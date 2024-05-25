@@ -1,13 +1,4 @@
-let todolist = [
-  {
-    item: "Buy Milk",
-    dueDate: "4/10/2023",
-  },
-  {
-    item: "Go to College",
-    dueDate: "4/10/2023",
-  },
-];
+let todolist = [];
 
 displayelement();
 
@@ -19,22 +10,22 @@ function addto() {
   todolist.push({ item: inputtext, dueDate: inputdate });
   inputelement.value = "";
   dateelement.value = "";
-  displayelement()
+  displayelement();
 }
 
 function displayelement() {
-  let displayelement=document.querySelector("#display")
-  let newhtml=''
-  for(let i=0;i<todolist.length;i++){
-    let{item , dueDate}=todolist[i]
-    newhtml+=`
+  let displayelement = document.querySelector("#display");
+  let newhtml = "";
+  for (let i = 0; i < todolist.length; i++) {
+    let { item, dueDate } = todolist[i];
+    newhtml += `
     <div>
     <span>${item}</span>
     <span>${dueDate}</span>
-    <button id="btn-delete" onclick="todoList.splice(${i}, 1);
+    <button id="btn-delete" onclick="todolist.splice(${i}, 1);
     displayelement();">Delete</button>
     </div>
     `;
   }
-  displayelement.innerHTML=newhtml;
+  displayelement.innerHTML = newhtml;
 }
